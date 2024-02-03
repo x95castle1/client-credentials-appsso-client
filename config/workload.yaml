@@ -1,0 +1,34 @@
+apiVersion: carto.run/v1alpha1
+kind: Workload
+metadata:
+  labels:
+    app.kubernetes.io/part-of: client-credentials-client
+    apps.tanzu.vmware.com/workload-type: web
+  name: client-credentials
+  namespace: dev
+spec:
+  params:
+    - name: annotations
+      value:
+        autoscaling.knative.dev/minScale: "1"
+  build:
+    env:
+    - name: BP_JVM_VERSION
+      value: "17"
+  serviceClaims:
+  # this name has to match the client registration you want to use.
+  - name: auth0-client-registration
+    ref:
+      apiVersion: services.apps.tanzu.vmware.com/v1alpha1
+      kind: ResourceClaim
+      name: client-credentials-java-for-auth0
+  - name: ca-cert
+    ref:
+      apiVersion: v1 
+      kind: Secret
+      name: tap-ca 
+  source:
+    git:
+      ref:
+        branch: main
+      url: https://github.com/x95castle1/client-credentials-appsso
