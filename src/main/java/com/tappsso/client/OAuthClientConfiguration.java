@@ -16,12 +16,12 @@ public class OAuthClientConfiguration {
     @Bean
     ClientRegistration oktaClientRegistration(
             @Value("${spring.security.oauth2.client.provider.appsso.issuer-uri}") String issuer_uri,
-            @Value("${spring.security.oauth2.client.registration.appsso-demo-client-registration.client-id}") String client_id,
-            @Value("${spring.security.oauth2.client.registration.appsso-demo-client-registration.client-secret}") String client_secret,
-            @Value("${spring.security.oauth2.client.registration.appsso-demo-client-registration.authorization-grant-type}") String authorizationGrantType,
-            @Value("${spring.security.oauth2.client.registration.appsso-demo-client-registration.scope}") String... scope) {
+            @Value("${spring.security.oauth2.client.registration.poop.client-id}") String client_id,
+            @Value("${spring.security.oauth2.client.registration.poop.client-secret}") String client_secret,
+            @Value("${spring.security.oauth2.client.registration.poop.authorization-grant-type}") String authorizationGrantType,
+            @Value("${spring.security.oauth2.client.registration.poop.scope}") String... scope) {
         return ClientRegistration
-                .withRegistrationId("appsso-demo-client-registration")
+                .withRegistrationId("poop")
                 .tokenUri(issuer_uri + "/oauth2/token")
                 .clientId(client_id)
                 .clientSecret(client_secret)
