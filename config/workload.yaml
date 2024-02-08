@@ -16,7 +16,7 @@ spec:
     - name: BP_JVM_VERSION
       value: "17"
   serviceClaims:
-  # this name has to match the client registration you want to use.
+  # this name has to match the client registration ID you want to use in the SPRING CONFIG
   - name: appsso-demo-client-registration
     ref:
       apiVersion: services.apps.tanzu.vmware.com/v1alpha1
