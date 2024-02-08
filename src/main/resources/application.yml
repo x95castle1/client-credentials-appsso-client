@@ -3,14 +3,6 @@ logging:
     org:
       springframework: ERROR
 
-org:
-  springframework:
-    cloud:
-      bindings:
-        boot:
-          oauth2:
-            enable: true
-
 spring:
   security:
     oauth2:
