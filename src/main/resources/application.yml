@@ -11,7 +11,7 @@ spring:
           appsso:
             issuer-uri: xxxx
         registration:
-          poop:
+          appsso-demo-client-registration:
             provider: xxx
             client-id: xxxx
             client-secret: xxx
