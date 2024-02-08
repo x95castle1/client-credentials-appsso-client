@@ -36,7 +36,7 @@ public class DemoController {
 	public String testClientEndpoint() {
 
 		// STEP 1: Retrieve the authorized JWT
-		OAuth2AuthorizeRequest authorizeRequest = OAuth2AuthorizeRequest.withClientRegistrationId("poop")
+		OAuth2AuthorizeRequest authorizeRequest = OAuth2AuthorizeRequest.withClientRegistrationId("appsso-demo-client-registration")
 			.principal("Demo Service")
 			.build();
 
