@@ -19,3 +19,4 @@ spring:
             client-id: xxxx
             client-secret: xxxxx
             scope: openid, email, profile
+            authorization-grant-types: poop

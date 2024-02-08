@@ -1,6 +1,7 @@
-package com.example.client;
+package com.tappsso.client;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.SpringBootConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.oauth2.client.*;
@@ -18,9 +19,8 @@ public class OAuthClientConfiguration {
             @Value("${spring.security.oauth2.client.provider.appsso.issuer-uri}") String token_uri,
             @Value("${spring.security.oauth2.client.registration.appsso.client-id}") String client_id,
             @Value("${spring.security.oauth2.client.registration.appsso.client-secret}") String client_secret,
-            @Value("${spring.security.oauth2.client.registration.appsso.scope}") String scope,
-            @Value("${spring.security.oauth2.client.registration.appsso.authorization-grant-type}") String authorizationGrantType
-    ) {
+            @Value("${spring.security.oauth2.client.registration.appsso.authorization-grant-types}") String authorizationGrantType,
+            @Value("${spring.security.oauth2.client.registration.appsso.scope}") String... scope) {
         return ClientRegistration
                 .withRegistrationId("appsso")
                 .tokenUri(token_uri)

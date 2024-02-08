@@ -1,11 +1,11 @@
 apiVersion: services.apps.tanzu.vmware.com/v1alpha1
 kind: ResourceClaim
 metadata:
-  name: client-credentials-resource-claim
+  name: appsso-demo-client-registration
   namespace: dev
 spec:
   ref:
     apiVersion: sso.apps.tanzu.vmware.com/v1alpha1
     kind: ClientRegistration
-    name: client-credentials-client-registration
+    name: appsso-demo-client-registration
     namespace: dev

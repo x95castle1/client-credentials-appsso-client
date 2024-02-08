@@ -3,25 +3,20 @@ package com.tappsso.client;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.CommandLineRunner;
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.oauth2.client.AuthorizedClientServiceOAuth2AuthorizedClientManager;
 import org.springframework.security.oauth2.client.OAuth2AuthorizeRequest;
 import org.springframework.security.oauth2.client.OAuth2AuthorizedClient;
 import org.springframework.security.oauth2.core.OAuth2AccessToken;
-import org.springframework.web.client.RestTemplate;
-
-import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
 
 import java.util.Objects;
 
@@ -37,8 +32,8 @@ public class DemoController {
 	@Autowired
 	private AuthorizedClientServiceOAuth2AuthorizedClientManager authorizedClientServiceAndManager;
 
-    @GetMapping(value = "/test")
-    public String testClientEndpoint() {
+	@GetMapping(value = "/test")
+	public String testClientEndpoint() {
 
 		// STEP 1: Retrieve the authorized JWT
 		OAuth2AuthorizeRequest authorizeRequest = OAuth2AuthorizeRequest.withClientRegistrationId("appsso")
@@ -65,7 +60,7 @@ public class DemoController {
 		// Make the actual HTTP GET request
 		RestTemplate restTemplate = new RestTemplate();
 		ResponseEntity<String> response = restTemplate.exchange(
-			"https://client-credentials.dev.h2o-2-22372.h2o.vmware.com/api/private-read",
+			"https://resource-server-client-credentials.dev.h2o-2-22372.h2o.vmware.com/api/private-read",
 			HttpMethod.GET,
 			request,
 			String.class
@@ -75,5 +70,5 @@ public class DemoController {
 		logger.info("Reply = " + result);
 
 		return result;
-    }
+	}
 }
