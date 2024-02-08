@@ -18,7 +18,7 @@ public class OAuthClientConfiguration {
             @Value("${spring.security.oauth2.client.provider.appsso.issuer-uri}") String issuer_uri,
             @Value("${spring.security.oauth2.client.registration.appsso.client-id}") String client_id,
             @Value("${spring.security.oauth2.client.registration.appsso.client-secret}") String client_secret,
-            @Value("${spring.security.oauth2.client.registration.appsso.authorization-grant-types}") String authorizationGrantType,
+            @Value("${spring.security.oauth2.client.registration.appsso.authorization-grant-type}") String authorizationGrantType,
             @Value("${spring.security.oauth2.client.registration.appsso.scope}") String... scope) {
         return ClientRegistration
                 .withRegistrationId("appsso")
