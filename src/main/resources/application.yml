@@ -23,5 +23,5 @@ spring:
             provider: appsso-demo-client-registration
             client-id: dev_appsso-demo-client-registration
             client-secret: cbff8134-6715-4a8e-b3f2-5111e5d59475
-            scope: openid, developer.read, developer.write
+            scope: openid
             authorization-grant-type: client_credentials
