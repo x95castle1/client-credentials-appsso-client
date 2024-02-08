@@ -16,4 +16,4 @@ spring:
             client-id: xxxx
             client-secret: xxx
             scope: xxxx
-            authorization-grant-type: xxx
+            authorization-grant-type: client_credentials
