@@ -15,7 +15,7 @@ public class OAuthClientConfiguration {
     // Create the Okta client registration
     @Bean
     ClientRegistration oktaClientRegistration(
-            @Value("${spring.security.oauth2.client.provider.appsso-demo-client-registration.issuer-uri}") String issuer_uri,
+            @Value("${spring.security.oauth2.client.provider.appsso.issuer-uri}") String issuer_uri,
             @Value("${spring.security.oauth2.client.registration.appsso-demo-client-registration.client-id}") String client_id,
             @Value("${spring.security.oauth2.client.registration.appsso-demo-client-registration.client-secret}") String client_secret,
             @Value("${spring.security.oauth2.client.registration.appsso-demo-client-registration.authorization-grant-type}") String authorizationGrantType,
