@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.HttpStatusCodeException;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.Objects;
@@ -59,16 +60,23 @@ public class DemoController {
 
 		// Make the actual HTTP GET request
 		RestTemplate restTemplate = new RestTemplate();
-		ResponseEntity<String> response = restTemplate.exchange(
-			"https://resource-server-client-credentials.dev.h2o-2-22372.h2o.vmware.com/api/private-read",
-			HttpMethod.GET,
-			request,
-			String.class
-		);
 
-		String result = response.getBody();
-		logger.info("Reply = " + result);
+		try {
+			ResponseEntity<String> response = restTemplate.exchange(
+				"https://resource-server-client-credentials.dev.h2o-2-22372.h2o.vmware.com/api/private-read",
+				HttpMethod.GET,
+				request,
+				String.class
+			);
+	
+			String result = response.getBody();
+			logger.info("Reply = " + result);
+	
+			return result;
 
-		return result;
+    } catch(HttpStatusCodeException e) {
+        return ResponseEntity.status(e.getRawStatusCode()).headers(e.getResponseHeaders())
+                .body(e.getResponseBodyAsString()).toString();
+    }
 	}
 }

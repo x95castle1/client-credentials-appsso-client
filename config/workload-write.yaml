@@ -2,9 +2,9 @@ apiVersion: carto.run/v1alpha1
 kind: Workload
 metadata:
   labels:
-    app.kubernetes.io/part-of: appsso-demo-client-credentials
+    app.kubernetes.io/part-of: appsso-demo-client-credentials-write
     apps.tanzu.vmware.com/workload-type: web
-  name: appsso-demo-client-credentials
+  name: appsso-demo-client-credentials-write
   namespace: dev
 spec:
   params:
@@ -21,7 +21,7 @@ spec:
     ref:
       apiVersion: services.apps.tanzu.vmware.com/v1alpha1
       kind: ResourceClaim
-      name: appsso-demo-client-credentials
+      name: appsso-demo-client-credentials-write
   - name: ca-cert
     ref:
       apiVersion: v1 
