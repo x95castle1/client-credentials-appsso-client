@@ -16,12 +16,12 @@ public class OAuthClientConfiguration {
     @Bean
     ClientRegistration clientRegistrationlientRegistration(
             @Value("${spring.security.oauth2.client.provider.appsso.issuer-uri}") String issuer_uri,
-            @Value("${spring.security.oauth2.client.registration.appsso-demo-client-registration.client-id}") String client_id,
-            @Value("${spring.security.oauth2.client.registration.appsso-demo-client-registration.client-secret}") String client_secret,
-            @Value("${spring.security.oauth2.client.registration.appsso-demo-client-registration.authorization-grant-type}") String authorizationGrantType,
-            @Value("${spring.security.oauth2.client.registration.appsso-demo-client-registration.scope}") String... scope) {
+            @Value("${spring.security.oauth2.client.registration.appsso-demo-client-credentials.client-id}") String client_id,
+            @Value("${spring.security.oauth2.client.registration.appsso-demo-client-credentials.client-secret}") String client_secret,
+            @Value("${spring.security.oauth2.client.registration.appsso-demo-client-credentials.authorization-grant-type}") String authorizationGrantType,
+            @Value("${spring.security.oauth2.client.registration.appsso-demo-client-credentials.scope}") String... scope) {
         return ClientRegistration
-                .withRegistrationId("appsso-demo-client-registration")
+                .withRegistrationId("appsso-demo-client-credentials")
                 .tokenUri(issuer_uri + "/oauth2/token")
                 .clientId(client_id)
                 .clientSecret(client_secret)

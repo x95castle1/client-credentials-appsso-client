@@ -2,9 +2,9 @@ apiVersion: carto.run/v1alpha1
 kind: Workload
 metadata:
   labels:
-    app.kubernetes.io/part-of: appsso-demo-client-registration
+    app.kubernetes.io/part-of: appsso-demo-client-credentials
     apps.tanzu.vmware.com/workload-type: web
-  name: appsso-demo-client-registration
+  name: appsso-demo-client-credentials
   namespace: dev
 spec:
   params:
@@ -17,11 +17,11 @@ spec:
       value: "17"
   serviceClaims:
   # this name has to match the client registration ID you want to use in the SPRING CONFIG
-  - name: appsso-demo-client-registration
+  - name: appsso-demo-client-credentials
     ref:
       apiVersion: services.apps.tanzu.vmware.com/v1alpha1
       kind: ResourceClaim
-      name: appsso-demo-client-registration
+      name: appsso-demo-client-credentials
   - name: ca-cert
     ref:
       apiVersion: v1 

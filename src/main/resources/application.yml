@@ -2,7 +2,7 @@ logging:
   level:
     com:
       tappsso:
-        client: DEBUG
+        client: INFO
 
 spring:
   security:
@@ -12,7 +12,7 @@ spring:
           appsso:
             issuer-uri: xxxx
         registration:
-          appsso-demo-client-registration: # This has to match what's in the workload
+          appsso-demo-client-credentials: # This has to match what's in the workload
             provider: xxx
             client-id: xxxx
             client-secret: xxx

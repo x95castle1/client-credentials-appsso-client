@@ -1,7 +1,7 @@
 apiVersion: sso.apps.tanzu.vmware.com/v1alpha1
 kind: ClientRegistration
 metadata:
-  name: appsso-demo-client-registration
+  name: appsso-demo-client-credentials
   namespace: dev
 spec:
   authServerSelector:
