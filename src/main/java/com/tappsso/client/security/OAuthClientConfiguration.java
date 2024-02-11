@@ -1,4 +1,4 @@
-package com.tappsso.client;
+package com.tappsso.client.security;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -12,9 +12,9 @@ import org.springframework.security.oauth2.core.AuthorizationGrantType;
 @Configuration
 public class OAuthClientConfiguration {
 
-    // Create the Okta client registration
+    // Create the Client Registration
     @Bean
-    ClientRegistration oktaClientRegistration(
+    ClientRegistration clientRegistrationlientRegistration(
             @Value("${spring.security.oauth2.client.provider.appsso.issuer-uri}") String issuer_uri,
             @Value("${spring.security.oauth2.client.registration.appsso-demo-client-registration.client-id}") String client_id,
             @Value("${spring.security.oauth2.client.registration.appsso-demo-client-registration.client-secret}") String client_secret,
@@ -32,8 +32,8 @@ public class OAuthClientConfiguration {
 
     // Create the client registration repository
     @Bean
-    public ClientRegistrationRepository clientRegistrationRepository(ClientRegistration oktaClientRegistration) {
-        return new InMemoryClientRegistrationRepository(oktaClientRegistration);
+    public ClientRegistrationRepository clientRegistrationRepository(ClientRegistration clientRegistration) {
+        return new InMemoryClientRegistrationRepository(clientRegistration);
     }
 
     // Create the authorized client service

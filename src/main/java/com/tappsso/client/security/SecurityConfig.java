@@ -1,4 +1,4 @@
-package com.tappsso.client;
+package com.tappsso.client.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

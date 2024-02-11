@@ -1,4 +1,4 @@
-package com.tappsso.client;
+package com.tappsso.client.config;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -11,6 +11,8 @@ import org.springframework.core.env.PropertySource;
 import java.util.LinkedList;
 import java.util.List;
 
+// This is used for troubleshooting what properties are being overlaid by spring cloud bindings
+// You can turn this on by setting the application logging to debug
 public class PropertiesLogger implements ApplicationListener<ApplicationPreparedEvent> {
 
     private static final Logger log = LoggerFactory.getLogger(PropertiesLogger.class);
@@ -30,17 +32,17 @@ public class PropertiesLogger implements ApplicationListener<ApplicationPrepared
 
     public void printProperties() {
         for (EnumerablePropertySource propertySource : findPropertiesPropertySources()) {
-            log.info("******* " + propertySource.getName() + " *******");
+            log.debug("******* " + propertySource.getName() + " *******");
             String[] propertyNames = propertySource.getPropertyNames();
             // Arrays.sort(propertyNames);
             for (String propertyName : propertyNames) {
                 String resolvedProperty = environment.getProperty(propertyName);
                 String sourceProperty = propertySource.getProperty(propertyName).toString();
                 if (resolvedProperty.equals(sourceProperty)) {
-                    log.info("{}={}", propertyName, resolvedProperty);
+                    log.debug("{}={}", propertyName, resolvedProperty);
                 }
                 else {
-                    log.info("{}={} OVERRIDDEN to {}", propertyName, sourceProperty, resolvedProperty);
+                    log.debug("{}={} OVERRIDDEN to {}", propertyName, sourceProperty, resolvedProperty);
                 }
             }
         }

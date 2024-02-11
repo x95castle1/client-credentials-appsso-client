@@ -1,7 +1,7 @@
 # logging:
 #   level:
 #     org:
-#       springframework: ERROR
+#       springframework: DEBUG
 
 spring:
   security:
@@ -11,7 +11,7 @@ spring:
           appsso:
             issuer-uri: xxxx
         registration:
-          appsso-demo-client-registration:
+          appsso-demo-client-registration: # This has to match what's in the workload
             provider: xxx
             client-id: xxxx
             client-secret: xxx
