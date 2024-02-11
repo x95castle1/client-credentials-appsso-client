@@ -2,7 +2,7 @@
 
 This is a sample Springboot REST API that acts as a SSO Client in a service to service flow using the `client_credentials` grant_type against a TAP AuthServer to call a [secured resource server API](https://github.com/x95castle1/client-credentials-appsso-resource-server).
 
-The application example can request scopes of `developer.read` and `developer.write`, but is not granted the scope of `developer.admin`.
+The application example can request scopes of `developer.read` or `developer.write`, but is not granted the scope of `developer.admin`.
 
 ## Getting Started
 
@@ -120,10 +120,9 @@ spec:
 
 ## Testing
 
-There are two sets of Workloads, ClientRegistrations, and ResourceClaims.
+There are two sets of Workload's, ClientRegistration's, and ResourceClaim's. One will deploy a Workload that uses a scope of `developer.read` and the other uses a scope `developer.write`. This allows you to hit the same application code, but demonstrate how the scopes in the ClientRegistration are used to control the access to the resource server. 
 
-The first will 
-
-
+* https://appsso-demo-client-credentials-read.<domain> - This will return a successful message.
+* https://appsso-demo-client-credentials-write.<domain> - This will return a 403 message with insufficient scope access.
 
 
